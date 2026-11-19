@@ -1,25 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Mini Paint Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#15151f">
+    <meta name="description" content="Mini Paint Pro: uma ferramenta simples e intuitiva para desenhar e criar.">
+
+    <title>Mini Paint Pro | Editor de Desenhos</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/favicons/favicon-16x16.png" type="image/x-icon">
 </head>
+
 <body>
 
-    <h1>🎨 Mini Paint Pro</h1>
+    <header class="app-header">
+        <div class="brand">
+            <span class="brand-icon">🎨</span>
 
-    <div class="toolbar">
-        <input type="color" id="colorPicker" value="#000000">
-        <input type="range" id="brushSize" min="1" max="20" value="5">
-        <button id="eraserBtn">Borracha</button>
-        <button id="clearBtn">Limpar</button>
-        <button id="downloadBtn">Baixar</button>
-    </div>
+            <div class="brand-info">
+                <h1>Mini Paint <span>Pro</span></h1>
+                <p>Seu pequeno estúdio criativo</p>
+            </div>
+        </div>
 
-    <canvas id="mainCanvas" width="900" height="500"></canvas>
+        <div class="header-actions">
+            <span class="status-indicator"></span>
+            <span>Pronto para desenhar</span>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <section class="toolbar">
+
+            <div class="tool-group">
+                <span class="tool-label">Ferramentas</span>
+
+                <div class="tool-buttons">
+                    <button id="brushBtn" class="tool-btn active"
+                        type="button" title="Pincel" aria-label="Pincel">
+                        🖌️
+                    </button>
+
+                    <button id="eraserBtn" class="tool-btn"
+                        type="button" title="Borracha" aria-label="Borracha">
+                        🧽
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-divider"></div>
+
+            <div class="tool-group">
+                <label for="colorPicker" class="tool-label">
+                    Cor do pincel
+                </label>
+
+                <div class="color-container">
+                    <input
+                        type="color"
+                        id="colorPicker"
+                        value="#000000"
+                        aria-label="Selecionar cor"
+                    >
+
+                    <span id="colorValue">#000000</span>
+                </div>
+            </div>
+
+            <div class="tool-divider"></div>
+
+            <div class="tool-group brush-group">
+                <label for="brushSize" class="tool-label">
+                    Tamanho do pincel
+                </label>
+
+                <div class="brush-controls">
+                    <input
+                        type="range"
+                        id="brushSize"
+                        min="1"
+                        max="50"
+                        value="5"
+                    >
+
+                    <span id="brushSizeValue">5 px</span>
+                </div>
+            </div>
+
+            <div class="tool-divider"></div>
+
+            <div class="tool-group">
+                <span class="tool-label">Histórico</span>
+
+                <div class="tool-buttons">
+                    <button id="undoBtn" class="tool-btn"
+                        type="button" title="Desfazer" aria-label="Desfazer">
+                        ↶
+                    </button>
+
+                    <button id="redoBtn" class="tool-btn"
+                        type="button" title="Refazer" aria-label="Refazer">
+                        ↷
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-divider"></div>
+
+            <div class="tool-group actions-group">
+                <span class="tool-label">Ações</span>
+
+                <div class="tool-buttons">
+                    <button id="clearBtn" class="action-btn clear-btn"
+                        type="button">
+                        🗑️ Limpar
+                    </button>
+
+                    <button id="downloadBtn" class="action-btn download-btn"
+                        type="button">
+                        ⬇️ Baixar
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="workspace">
+
+            <div class="canvas-header">
+                <div>
+                    <h2>Área de desenho</h2>
+                    <p>Solte sua criatividade na tela!</p>
+                </div>
+
+                <span class="canvas-resolution">
+                    900 × 500 px
+                </span>
+            </div>
+
+            <div class="canvas-container">
+                <canvas
+                    id="mainCanvas"
+                    width="900"
+                    height="500"
+                    aria-label="Área de desenho do Mini Paint Pro"
+                >
+                    Seu navegador não suporta o elemento canvas.
+                </canvas>
+            </div>
+
+            <div class="canvas-footer">
+                <span>✦ Mini Paint Pro</span>
+                <span>Crie. Desenhe. Expresse-se.</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        Desenvolvido para dar vida às suas ideias. ✨
+    </footer>
 
     <script src="js/app.js"></script>
+
 </body>
 </html>
